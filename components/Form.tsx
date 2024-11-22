@@ -190,6 +190,7 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
           >
             <option value="">Select</option>
             <option value="India">India-Urban</option>
+            <option value="India">India-Rural</option>
             <option value="Abroad">Abroad</option>
           </select>
         </div>

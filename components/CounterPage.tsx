@@ -47,7 +47,7 @@ const CounterPage: React.FC<CounterPageProps> = ({ formData }) => {
   useEffect(() => {
     // Change image index every 3 seconds
     const imageInterval = setInterval(() => {
-      setImageIndex((prev) => (prev % 3) + 1); // Cycle through images 1 to 3
+      setImageIndex((prev) => (prev % 5) + 1); // Cycle through images 1 to 3
     }, 3000);
 
     return () => clearInterval(imageInterval);
@@ -233,9 +233,6 @@ switch (formData.residence) {
           </p>
         </div>
       </div>
-
-      {/* Countdown Timer
-      <p className="text-lg mt-6">{timeLeft} seconds remaining...</p> */}
 
       {/* Dynamic Image */}
       <div className="mt-6">
