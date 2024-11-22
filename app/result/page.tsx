@@ -22,7 +22,7 @@ const ResultPage: React.FC = () => {
       <div className="flex items-center justify-center min-h-screen bg-black bg-opacity-50">
         <div className="p-6 sm:p-8 bg-white shadow-lg rounded-lg max-w-md sm:max-w-lg w-full text-center mx-4">
           <h2 className="text-3xl sm:text-4xl font-bold text-black mb-6">
-            If you're still not convinced...
+            If you&apos;re still not convinced...
           </h2>
           <div className="mt-6">
             <h3 className="text-2xl sm:text-1xl font-semibold text-gray-700">
@@ -32,7 +32,7 @@ const ResultPage: React.FC = () => {
               ₹{dowryAmount}
             </p>
             <p className="mt-4 text-lg text-gray-600">
-              If this amount doesn't seem right, think again!
+              If this amount doesn&apos;t seem right, think again!
             </p>
           </div>
           <button

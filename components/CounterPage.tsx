@@ -2,9 +2,21 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+
+// Define a more specific interface for formData
+interface FormData {
+  age: string;
+  profession: string;
+  salary: string;
+  education: string;
+  maritalStatus: string;
+  house: string;
+  residence: string;
+}
 
 interface CounterPageProps {
-  formData: any;
+  formData: FormData;
 }
 
 const CounterPage: React.FC<CounterPageProps> = ({ formData }) => {
@@ -66,7 +78,7 @@ const CounterPage: React.FC<CounterPageProps> = ({ formData }) => {
     animateCounter(35493, setFiveYearDeaths, 10); // Increment to 35,493+
   }, []);
 
-  const calculateDowry = (formData: any) => {
+  const calculateDowry = (formData: FormData) => {
     let dowry = 2000000;
 
     // Age contributions
@@ -90,26 +102,26 @@ const CounterPage: React.FC<CounterPageProps> = ({ formData }) => {
         dowry += 0;
     }
 
-// Profession contributions
-switch (formData.profession) {
-  case "Doctor":
-    dowry += 500000; // High-income profession
-    break;
-  case "Engineer":
-    dowry += 400000;
-    break;
-  case "Entrepreneur":
-    dowry += 300000;
-    break;
-  case "Banker":
-    dowry += 250000;
-    break;
-  case "Others":
-    dowry += 100000;
-    break;
-  default:
-    dowry += 0;
-}
+    // Profession contributions
+    switch (formData.profession) {
+      case "Doctor":
+        dowry += 500000; // High-income profession
+        break;
+      case "Engineer":
+        dowry += 400000;
+        break;
+      case "Entrepreneur":
+        dowry += 300000;
+        break;
+      case "Banker":
+        dowry += 250000;
+        break;
+      case "Others":
+        dowry += 100000;
+        break;
+      default:
+        dowry += 0;
+    }
 
 // Salary contributions
 switch (formData.salary) {
@@ -227,10 +239,12 @@ switch (formData.residence) {
 
       {/* Dynamic Image */}
       <div className="mt-6">
-        <img
+        <Image
           src={`/images/dowry${imageIndex}.jpg`}
           alt="Dynamic Image"
           className="w-full max-w-md mx-auto rounded shadow-lg"
+          width={100}
+          height={100}
         />
       </div>
     </div>

@@ -1,12 +1,24 @@
 "use client";
 import React, { useState } from "react";
 
+// Define the shape of the form data
+interface FormData {
+  age: string;
+  profession: string;
+  salary: string;
+  education: string;
+  maritalStatus: string;
+  house: string;
+  residence: string;
+}
+
+// Define the props for the Form component
 interface FormProps {
-  onSubmit: (data: any) => void;
+  onSubmit: (data: FormData) => void;
 }
 
 const Form: React.FC<FormProps> = ({ onSubmit }) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     age: "",
     profession: "",
     salary: "",
@@ -52,7 +64,6 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
   };
 
   return (
-    
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="form-row flex flex-wrap gap-4">
         {/* Age Dropdown */}
@@ -152,28 +163,37 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
       </div>
 
       <div className="form-row flex flex-wrap gap-4">
-      {/* House Dropdown */}
-      <div className="form-group flex-1">
-        <label htmlFor="house">House</label>
-        <select id="residence" name="residence" className="form-select w-full p-2 border border-gray-300 rounded" required>
-          <option value="">Select</option>
-          <option value="Self-owned">Self-owned</option>
-          <option value="Rented">Rented</option>
-          <option value="Parent’s house">Parent’s house</option>
-        </select>
-      </div>
+        {/* House Dropdown */}
+        <div className="form-group flex-1">
+          <label htmlFor="house">House</label>
+          <select
+            id="residence"
+            name="residence"
+            className="form-select w-full p-2 border border-gray-300 rounded"
+            required
+          >
+            <option value="">Select</option>
+            <option value="Self-owned">Self-owned</option>
+            <option value="Rented">Rented</option>
+            <option value="Parent’s house">Parent’s house</option>
+          </select>
+        </div>
 
-      {/* Residence Dropdown */}
-      <div className="form-group flex-1">
-        <label htmlFor="country">Residence</label>
-        <select id="country" name="country" className="form-select w-full p-2 border border-gray-300 rounded" required>
-          <option value="">Select</option>
-          <option value="India">India-Urban</option>
-          <option value="India">India-Urban</option>
-          <option value="Abroad">Abroad</option>
-        </select>
+        {/* Residence Dropdown */}
+        <div className="form-group flex-1">
+          <label htmlFor="country">Residence</label>
+          <select
+            id="country"
+            name="country"
+            className="form-select w-full p-2 border border-gray-300 rounded"
+            required
+          >
+            <option value="">Select</option>
+            <option value="India">India-Urban</option>
+            <option value="Abroad">Abroad</option>
+          </select>
+        </div>
       </div>
-    </div>
 
       {/* Marital Status */}
       <div>

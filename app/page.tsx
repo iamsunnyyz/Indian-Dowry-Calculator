@@ -1,13 +1,25 @@
-"use client";
+'use client';
+
 import { useState } from "react";
 import Form from "../components/Form";
 import CounterPage from "../components/CounterPage";
+import Image from "next/image";
+
+interface FormData {
+  age: string;
+  profession: string;
+  salary: string;
+  education: string;
+  maritalStatus: string;
+  house: string;
+  residence: string;
+}
 
 export default function HomePage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState<FormData | null>(null);
 
-  const handleFormSubmit = (data: any) => {
+  const handleFormSubmit = (data: FormData) => {
     setFormData(data);
     setIsSubmitted(true);
   };
@@ -32,10 +44,12 @@ export default function HomePage() {
       <div className="flex flex-col md:flex-row justify-center items-center w-full max-w-6xl space-y-8 md:space-y-0 md:space-x-8">
         {/* Left Column: Female-Hand image */}
         <div className="flex-1 flex justify-center items-center">
-          <img
+          <Image
             src="/images/Female-Hand.png"
             alt="Female Hand"
-            className="w-3/4 md:w-full h-auto object-contain"
+            className="md:w-full h-auto object-contain"
+            width={500}
+            height={300}
           />
         </div>
 
@@ -44,7 +58,7 @@ export default function HomePage() {
           {!isSubmitted ? (
             <Form onSubmit={handleFormSubmit} />
           ) : (
-            <CounterPage formData={formData} />
+            <CounterPage formData={formData!} />
           )}
         </div>
       </div>
