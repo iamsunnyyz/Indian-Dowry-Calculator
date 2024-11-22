@@ -243,8 +243,8 @@ switch (formData.residence) {
           src={`/images/dowry${imageIndex}.jpg`}
           alt="Dynamic Image"
           className="w-full max-w-md mx-auto rounded shadow-lg"
-          width={100}
-          height={100}
+          width={500}
+          height={400}
         />
       </div>
     </div>
